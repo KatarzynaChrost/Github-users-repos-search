@@ -1,37 +1,74 @@
 html {
-  background: linear-gradient(to top right, #ffa16e, #ff7226);
-  min-height: 100vh;
+  background: linear-gradient(to right, #53320e, #161616);
 }
 
 * {
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  min-height: 100vh;
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: 350px 1fr
+  }
+  @media only screen and (max-width: 900px) {
+    display: unset;
+  }
 }
 
+h1{
+  color:white;
+  font-size: 38px;
+  margin:50px 0;
+  @media only screen and (max-width: 900px) {
+    text-align: center;
+  }
+  @media only screen and (max-width: 500px) {
+    margin:30px 0;
+    font-size: 30px
+  }
+  @media only screen and (max-width: 370px) {
+    font-size: 26px
+  }
+}
 
 #search-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 50px auto;
-  flex-direction: column;
+  max-width: 100%;
+  background-color: #000b07;
+  padding: 30px;
+  height: 100%;
+  @media only screen and (max-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media only screen and (max-width: 500px) {
+    padding: 14px;
+  }
 
   input {
-    padding: 15px;
+    padding: 8px;
     text-align: center;
+    border: 1px solid #d15716;
     border-radius: 5px;
-    font-size: 40px;
-    border: 1px solid rgb(29, 6, 6);
-    background: rgba(236, 236, 236, 0.5);
-    width: 80%;
-
-    @media only screen and (max-width: 700px) {
-      width: 90%;
+    font-size: 24px;
+    background: #000b07;
+    color:white;
+    width: 90%;
+    @media only screen and (max-width: 500px) {
+      font-size: 19px;
+      padding: 6px
     }
+
 
     &:focus {
       outline: none;
-      box-shadow: 0px 0px 29px -1px rgba(77, 77, 77, 0.664);
+      box-shadow: 0px 0px 29px -1px rgba(156, 78, 0, 0.664);
     }
   }
 
@@ -46,29 +83,22 @@ html {
     text-decoration: none;
     font-size: 20px;
     cursor: pointer;
-    width: 50%;
-
-    @media only screen and (max-width: 700px) {
-      width: 90%;
+    width: 90%;
+    @media only screen and (max-width: 500px) {
+      font-size: 16px;
+      padding: 8px 22px;
     }
 
     &:hover {
-      box-shadow: 0px 0px 22px -1px rgba(122, 122, 122, 0.568);
+      box-shadow: 0px 0px 29px -1px rgba(156, 78, 0, 0.664);
     }
   }
 }
 
 .result {
-  background: rgba(236, 236, 236, 0.5);
-  border-radius: 5px;
-  color: rgb(29, 6, 6);
+  color: white;
   width: 80%;
   margin: auto;
-  border: 1px solid rgb(29, 6, 6);
-
-  @media only screen and (max-width: 700px) {
-    width: 90%;
-  }
 
   &:not(.-visible) {
     display: none;
@@ -79,20 +109,31 @@ html {
     font-weight: 200;
     padding: 20px;
     text-align: center;
-    margin: 0;
+    margin: 20px;
   }
 
   ol {
-    margin: 0 20px 20px 20px;
+    margin: 20px;
     font-weight: 200;
-    font-size: 20px;
+    padding: 0;
+    font-size: 25px;
     counter-reset: listCounter;
+    @media only screen and (max-width: 1100px) {
+      font-size: 20px;
+    }
+    @media only screen and (max-width: 550px) {
+      font-size: 18px;
+    }
+
 
     .result-repos {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       counter-increment: listCounter;
+      @media only screen and (max-width: 900px) {
+        text-align: center;
+
+      }
 
       p {
         &:first-of-type::before {
@@ -100,5 +141,9 @@ html {
         }
       }
     }
+  }
+  @media only screen and (max-width: 550px) {
+    margin: 0;
+    width: 100%;
   }
 }
